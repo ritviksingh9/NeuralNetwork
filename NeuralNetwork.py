@@ -50,6 +50,7 @@ class NN:
         '''
         for i in range(epochs):
             random.shuffle(training_data)
+            #creating a bunch of small batches of the training data
             batches = [training_data[j:j+batch_size] for  j in range(0, len(training_data), batch_size)]
             for k in batches:
                 self.update_batch(k, learning_rate)
@@ -108,7 +109,7 @@ class NN:
     def delta_output(self, output_layer, y):
         '''
             (List(Float), List(Float)) --> List(Float)
-            Calculates the error between the calculated output and the desired output
+            Calculates the error between the calculated output and the desired output.
         '''
         return (output_layer-y)
     
